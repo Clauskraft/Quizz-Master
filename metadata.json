@@ -1,0 +1,8 @@
+{
+  "name": "Musikquizkampen: Voice Nexus",
+  "description": "En totalt digital, stemmestyret musikquiz-oplevelse drevet af AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
