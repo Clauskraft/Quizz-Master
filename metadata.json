@@ -1,6 +1,6 @@
 {
-  "name": "Musikquizkampen: Voice Nexus",
-  "description": "En totalt digital, stemmestyret musikquiz-oplevelse drevet af AI.",
+  "name": "Musikquizkampen: Eurovision Edition",
+  "description": "Total digital, stemmestyret musikquiz drevet af AI.",
   "requestFramePermissions": [
     "camera",
     "microphone"

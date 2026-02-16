@@ -15,7 +15,7 @@ const PLAYLIST_SCHEMA = {
       genre: { type: Type.STRING },
       fact: { type: Type.STRING },
       difficulty: { type: Type.STRING },
-      youtubeId: { type: Type.STRING, description: "A valid 11-character YouTube video ID for the official music video or high-quality audio." }
+      youtubeId: { type: Type.STRING, description: "A valid 11-character YouTube video ID that is ALLOWED to be embedded and played in an iframe (e.g., official music video)." }
     },
     required: ['title', 'artist', 'year', 'genre', 'fact', 'difficulty', 'youtubeId']
   }
@@ -42,11 +42,12 @@ export const generatePlaylist = async (settings: GameSettings, count: number = 1
   
   REQUIREMENTS:
   1. Each track must be a major hit recognizable to players.
-  2. For the 'youtubeId', you MUST provide a valid, working 11-character ID (e.g., 'dQw4w9WgXcQ').
-  3. Ensure a mix of tempos and styles within the category.
-  4. The facts should be short, punchy, and in Danish.
+  2. For the 'youtubeId', you MUST provide a valid, working 11-character ID. 
+  3. CRITICAL: Ensure the chosen videos ALLOW embedding in third-party applications.
+  4. Ensure a mix of tempos and styles within the category.
+  5. The facts should be short, punchy, and in Danish.
   
-  Format the output as a JSON array of objects.`;
+  Format the output as a JSON array of objects conforming to the schema.`;
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
@@ -65,7 +66,6 @@ export const generatePlaylist = async (settings: GameSettings, count: number = 1
     }));
   } catch (e) {
     console.error("Failed to parse AI playlist", e);
-    // Fallback if AI fails
     return [];
   }
 };
